@@ -33,7 +33,7 @@
     <!-- sonar : lancement tache SONAR -->
     <target name="sonar" description="Analyse avec Sonar">
         <exec logoutput="true" escape="true" 
-            command="/home/bitnami/sonar-work/sonar-runner-2.2.1/bin/./sonar-runner -e -Dsonar.exclusions=./google-api-php-client/**" />
+            command="/home/bitnami/sonar-work/sonar-runner-2.2.1/bin/./sonar-runner -e -Dsonar.exclusions=./PHP_Tests/**" />
     </target>
 
     <!-- phpunit => lancement tests unitaires avec phpunit -->
