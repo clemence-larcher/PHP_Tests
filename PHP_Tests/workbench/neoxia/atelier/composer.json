@@ -1,0 +1,23 @@
+{
+    "name": "neoxia/atelier",
+    "description": "",
+    "authors": [
+        {
+            "name": "c.larcher",
+            "email": "clemence.larcher@neoxia.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Neoxia\\Atelier": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

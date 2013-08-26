@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="POC-Google-Prediction-API" default="ic" basedir="./">
+    
+    <property name="builddir" value="${project.basedir}/target/${env.BUILD_ID}" />
+
+    <!-- SUPER TARGETS -->
+    <target name="ic" description="Integration Continue" depends="clean,prepare,phpunit,sonar,phpcs" />
+
+
+    <!-- TARGETS -->
+
+    <!-- clean -->
+    <target name="clean" description="Vide les répertoires">
+        <echo msg="Suppression du repertoire : ${builddir}" />
+        <delete dir="${builddir}" includeemptydirs="true" verbose="true" failonerror="false" />
+
+        <echo msg="Suppression du repertoire : ${builddir}/logs" />
+        <delete dir="${builddir}/logs" includeemptydirs="true" verbose="true" failonerror="false" />
+    </target>
+
+    <!-- prepare : creation repertoires -->
+    <target name="prepare">
+    	<echo msg="Creation repertoire : ${builddir}" />
+        <mkdir dir="${builddir}" />
+
+        <echo msg="Creation repertoire : ${builddir}/logs" />
+        <mkdir dir="${builddir}/logs" />
+
+        <echo msg="Creation repertoire : ${builddir}/target" />
+        <mkdir dir="${builddir}/target" />
+    </target>
+
+    <!-- sonar : lancement tache SONAR -->
+    <target name="sonar" description="Analyse avec Sonar">
+        <exec logoutput="true" escape="true" 
+            command="/home/bitnami/sonar-work/sonar-runner-2.2.1/bin/./sonar-runner -e -Dsonar.exclusions=./google-api-php-client/**" />
+    </target>
+
+    <!-- phpunit => lancement tests unitaires avec phpunit -->
+    <target name="phpunit" description="Lancement des tests">
+	    <exec logoutput="true" escape="false" checkreturn="true"
+            command="phpunit 
+	    				--configuration '${project.basedir}/phpunit.xml'" />
+	</target>
+
+    <!-- phpcs : Analyse statique avec PHP_CodeSniffer -->
+    <target name="phpcs" description="Analyse avec PHP_CodeSniffer">
+        <exec executable="phpcs">
+            <arg value="--standard=${project.basedir}/build/phpcs.xml" />
+            <arg path="${project.basedir}" />
+        </exec>
+    </target>
+
+</project>
