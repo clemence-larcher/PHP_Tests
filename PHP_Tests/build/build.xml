@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="POC-Google-Prediction-API" default="ic" basedir="./">
+<project name="PHP_Tests" default="ic" basedir="./">
     
     <property name="builddir" value="${project.basedir}/target/${env.BUILD_ID}" />
 
