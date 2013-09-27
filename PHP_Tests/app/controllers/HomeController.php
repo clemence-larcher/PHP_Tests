@@ -17,7 +17,9 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('hello');
+	    //echo ;
+	    //echo Atelier::methodToTestWithArgs(1);
+		return View::make('hello', array('greeting' => Atelier::greeting()));
 	}
 
 }

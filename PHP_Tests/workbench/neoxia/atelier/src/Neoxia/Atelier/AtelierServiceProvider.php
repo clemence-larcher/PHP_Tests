@@ -28,7 +28,16 @@ class AtelierServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+	    $this->app['atelier'] = $this->app->share(function($app)
+	    {
+	        return new Atelier();
+	    });
+
+	    $this->app->booting(function()
+	    {
+	        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+	        $loader->alias('Atelier', 'Neoxia\Atelier\Facades\Atelier');
+	    });
 	}
 
 	/**
@@ -38,7 +47,7 @@ class AtelierServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('atelier');
 	}
 
 }
