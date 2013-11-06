@@ -19,6 +19,7 @@ URL: https://code.google.com/p/io-2012-slides
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" media="all" href="theme/css/default.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <link rel="stylesheet" media="all" href="theme/css/perso.css">
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
   <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
 </head>
@@ -44,76 +45,209 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide>
     <hgroup>
-      <h2>Astria</h2>
+      <h2>PHP</h2>
     </hgroup>
     <article>
       <ul class="build">
-        <li>Acteur de l'Action Logement</li>
-        <li>Comité interprofessionnel pour le logement (CIL)</li>
-        <li>Aide au logement :
-        	<ul>
-        		<li>Offre de logement</li>
-        		<li>Prêts pour l'achat, location, construction</li>
-        		<li>...</li>
-        	</ul>
-        </li>
-        <li>En 2012, 8 950 familles logées</li>
+      	<li class="green3">"Vocabulaire"</li>
+      	<li class="red">Standard de code</li>
+      	<br />
+        <li>Apparu en 1994</li>
+        <li>Créé par Zend Technologies</li>
+        <li>En 2013, 244 millions de site web l'utilise</li>
+        <li>Version actuelle 5</li>
+        <li class="green3">"Dynamisme", "côté serveur"</li>
+      </ul>
+    </article>
+  </slide>
+  
+  <slide>
+    <hgroup>
+      <h2>La base</h2>
+      <h3>;</h3>
+    </hgroup>
+    <article>
+      <ul class="build">
+      	<li>Une instruction (une action, un traitement, une phrase) finit par un ";"</li>
+      	<li class="red">Une instruction par ligne</li>
       </ul>
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Projet Echanges XML</h2>
-      <h3>Zend / Oracle</h3>
+      <h2>Les ingrédients</h2>
+      <h3>Variables</h3>
     </hgroup>
     <article>
       <ul class="build">
-        <li>Echanger la demande du candidat avec les autres CILs et les bailleurs</li>
-        <li>Respect du standard "InterfaceNuu"</li>
-        <li>Refactoring du système d'échange :
-        	<ul>
-        		<li>Sélection des demandes</li>
-        		<li>Formation du contenu du document</li>
-        		<li>Moteur d'export</li>
-        </li>
-      </ul>
-      <br />
-      <br />
-      <br />
-      <p class="red3">Comment tester "unitairement" le code du Controller ?</p>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Bonnes pratiques</h2>
-    </hgroup>
-    <article>
-      <ul class="build">
-        <li>TDD
-        	<ul>
-        		<li>Première étape : écrire le test et l'exécuter (rouge)</li>
-        		<li>Deuxième étape : écrire la fonction pour que le test passe (vert)</li>
-        		<li>Troisième étape : refactoring</li>
-        	</ul>
-        </li>
-        <li>Un test par fonction et par comportement</li>
-        <li>Pour les fonctions plus complexes, tester en pair programming</li>
-        <li>Vérifier la couverture des tests : <code>phpunit --coverage-html [directory]</code></li>
+        <li>Commencent par "$"</li>
+        <li>Finissent par son nom</li>
+        <li class="red">Le nom commence par une minuscule</li>
+    	<li class="red">Le nom doit être en "camelCase"</li>
+    	<li>Exemples : $maVariable, $titreFilm, $films</li>
+    	<li>Une variable doit bien porter son nom !</li>
+    	<li class="green3">"Typée"</li>
+    	<li>Les types : 
+    		<ul>
+    			<li>chaines de caractères (<span class="vocabulaire">"string"</span>): 'bouh', 'PHP ca déchire !', ...</li>
+    			<li>entier (<span class="vocabulaire">"int"</span>), nombre décimaux (<span class="vocabulaire">"float"</span>) : 1, 2, 3.14, ...</li>
+    			<li>booléen (<span class="vocabulaire">"boolean"</span>) : true, false</li>
+    			<li>liste (<span class="vocabulaire">"array"</span>) : array('des petits', true, 'des petits', true, 'toujours des petits', true)</li>
+    		</ul>
+    	</li>
       </ul>
     </article>
   </slide>
   
   <slide>
   	<hgroup>
-  		<h2>Contraintes</h2>
+  		<h2>Les doseurs, mixeurs, ...</h2>
+  		<h3>Les opérateurs</h3>
   	</hgroup>
   	<article>
-  		<p>Dans le cas des tests avec Laravel,</p>
+  		<table>
+        <tr>
+          <th>""</th><th>Syntaxe</th><th>Exemples</th>
+        </tr>
+        <tr>
+          <td><span class="vocabulaire">"Affectation", "Initialisation"</span></td><td>=</td><td>$bonjour = 'bouh';</td>
+        </tr>
+        <tr>
+          <td>"Comparaison"</td><td>==, ===</td><td>'bouh' === 'bouh'</td>
+        </tr>
+        <tr>
+          <td>"Comparaison"</td><td>!=, !==</td><td>1 !== 2    1 !== '1'</td>
+        </tr>
+        <tr>
+          <td>"Comparaison"</td><td><, >, <=, >=</td><td>1 > 0</td>
+        </tr>
+        <tr>
+          <td>"Arithmétique"</td><td>+, -, %, *, /</td><td>1 + 1</td>
+        </tr>
+        <tr>
+          <td><span class="vocabulaire">"Incrémentation", "Décrémentation"</span></td><td>++, --</td><td>$compteur++</td>
+        </tr>
+        <tr>
+          <td><span class="vocabulaire">"Concaténation", "Cast"</span></td><td>.</td><td>$bonjour . " tout le monde"</td>
+        </tr>
+      </table>
+    </article>
+  </slide>
+  
+  <slide>
+    <hgroup>
+      <h2>Les ustensiles |</h2>
+      <h3>if</h3>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>Si [condition est vraie] alors ...</li>
+<pre class="prettyprint" data-lang="php">
+&lt;?php
+  if (true === condition) {
+  	echo 'vrai !';
+  }
+</pre>
+		<li class="red">A chaque fois qu'on est entre { }, on <span class="vocabulaire">"indente"</span> notre code,
+      	<li class="red">Il faut un espace entre le nom de l'ustensile et '(',</li>
+      	<li class="red">Entre le ')' et le '{',</li>
+      	<li class="red">On revient à la ligne pour '}'</li>
+      </ul>
+    </article>
+  </slide>
+  
+  <slide>
+    <hgroup>
+      <h2>Les ustensiles ||</h2>
+      <h3>foreach</h3>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>Pour chaque élément de ma liste ...</li>
+<pre class="prettyprint" data-lang="php">
+&lt;?php
+  foreach ($liste as $element) {
+    echo $element;
+  }
+</pre>
+      	<li class="red">A chaque fois qu'on est entre { }, on <span class="vocabulaire">"indente"</span> notre code,
+      	<li class="red">Il faut un espace entre le nom de l'ustensile et '(',</li>
+      	<li class="red">Entre le ')' et le '{',</li>
+      	<li class="red">On revient à la ligne pour '}'</li>
+      </ul>
+    </article>
+  </slide>
+  
+  <slide>
+    <hgroup>
+      <h2>Les ustensiles ||</h2>
+      <h3>foreach</h3>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li>Pour chaque clef et élément de ma liste ...</li>
+<pre class="prettyprint" data-lang="php">
+&lt;?php
+  $liste = array(
+  	'etape1' => 'Préchauffer le four à 180°C',
+  	'etape2' => 'Faire cuir la pâte à blanc pendant 5 minutes'
+  );
+  foreach ($liste as $clef => $element) {
+    echo $key . ' a pour element ' . $element;
+  }
+</pre>
+      	<li class="red">A chaque fois qu'on est entre { }, on <span class="vocabulaire">"indente"</span> notre code,
+      	<li class="red">Il faut un espace entre le nom de l'ustensile et '(',</li>
+      	<li class="red">Entre le ')' et le '{',</li>
+      	<li class="red">On revient à la ligne pour '}'</li>
+      </ul>
+    </article>
+  </slide>
+  
+  <slide>
+  	<hgroup>
+  		<h2>Les notes</h2>
+  		<h3>Les commentaires</h3>
+  	</hgroup>
+  	<article>
   		<ul class="build">
-  			<li>Il n'y a plus le contexte de l'application</li>
-  			<li>L'autoload n'est pas géré.</li>
+  			<li>Elles sont visibles uniquement par vous.</li>
+  			<li>Elles permettent une meilleure compréhension du code</li>
+  		<pre class="prettyprint" data-lang="php">
+&lt;?php
+// je suis un commentaire sur une ligne
+/* 
+   je suis
+   un commentaire
+   sur plusieurs lignes
+*/
+</pre>
+  		</ul>
+  	</article>
+  </slide>
+  
+  <slide>
+  	<hgroup>
+  		<h2>TP</h2>
+  	</hgroup>
+  	<article>
+  		<p>On souhaite afficher une filmographie.</p>
+  		<ul class="build">
+  			<li>Un film contient un titre, une année de parution, des acteurs.</li>
+  			<li>Un acteur a un prénom, nom.</li>
+  		</ul>
+  		<pre class="prettyprint" data-lang="php">
+&lt;?php
+  $liste = array(
+  	'etape1' => 'Préchauffer le four à 180°C',
+  	'etape2' => 'Faire cuir la pâte à blanc pendant 5 minutes'
+  );
+  foreach ($liste as $clef => $element) {
+    echo $key . ' a pour element ' . $element;
+  }
+</pre>
+  		
   	</article>
   </slide>
 

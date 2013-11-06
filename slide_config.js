@@ -1,7 +1,7 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Atelier Test Unitaire',
+    title: 'Atelier PHP pour débutant',
     subtitle: '',
     //eventInfo: {
     //  title: 'Google I/O',
@@ -24,7 +24,7 @@ var SLIDE_CONFIG = {
   presenters: [{
     name: 'Clémence Larcher',
     company: 'Neoxia<br>',
-    github: 'https://github.com/clemence-larcher/PHP_Tests'
+    //github: 'https://github.com/clemence-larcher/PHP_Tests'
   }/*, {
     name: 'Second Name',
     company: 'Job Title, Google',
